@@ -38,24 +38,28 @@ const AddSchool = ({ toggleAddSchool, getSchools, data, user }) => {
         <input ref={school} placeholder='School name...'/>
 
         <p>Majors:</p>
-        {data.majors.map((x) => {
-            return (
-                <div>
-                <input name='input' type={"checkbox"} value={x} onChange={handleChangeMajor}/>
-                <label for={x}>{x}</label>
-                </div>
-            )
-        })}
-
-        <p>Minors: </p>
-        {data.minors.map((x) => {
-            return (
-                <div>
-                    <input name='input' id={x+"Mi"} type={"checkbox"} value={x} onChange={handleChangeMinor} />
-                    <label for={x+"Mi"}>{x}</label>
-                </div>
-            )
-        })}
+        {data ? (
+            <>
+            {data.majors.map((x) => {
+                return (
+                    <div>
+                    <input name='input' type={"checkbox"} value={x} onChange={handleChangeMajor}/>
+                    <label for={x}>{x}</label>
+                    </div>
+                )
+            })}
+    
+            <p>Minors: </p>
+            {data.minors.map((x) => {
+                return (
+                    <div>
+                        <input name='input' id={x+"Mi"} type={"checkbox"} value={x} onChange={handleChangeMinor} />
+                        <label for={x+"Mi"}>{x}</label>
+                    </div>
+                )
+            })}
+            </>
+        ) : ""}
         <button onClick={submit}>Add School</button><button onClick={() => toggleAddSchool(false)}>Cancel</button>
         <br />
         <br />
