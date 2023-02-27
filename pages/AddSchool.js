@@ -57,6 +57,9 @@ const AddSchool = ({ toggleAddSchool, getSchools, data, user }) => {
             )
         })}
         <button onClick={submit}>Add School</button><button onClick={() => toggleAddSchool(false)}>Cancel</button>
+        <br />
+        <br />
+        <hr />
     </div>
   )
 }

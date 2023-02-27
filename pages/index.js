@@ -12,6 +12,7 @@ import AddSchool from './AddSchool'
 import { async } from '@firebase/util'
 const inter = Inter({ subsets: ['latin'] })
 import { AiFillDelete } from "react-icons/ai"
+import { TiDelete } from "react-icons/ti"
 export default function Home() {
   const input = useRef(null); 
   const option = useRef(null);
@@ -171,7 +172,7 @@ export default function Home() {
           <br />
           {schools.map((x) => {
             return (
-              <div key={Math.random()*100}>
+              <div className='school' key={Math.random()*100}>
                 <h3>{x.school}</h3>
                 {x.majors.length > 0 ? (
                   <div>
@@ -189,12 +190,8 @@ export default function Home() {
                     })}
                   </div>
                 ) : ""}
-                <br />
-                <button onClick={() => removeSchool(x.id)}>Remove School</button>
-                <br />
-                <br />
-                <hr />
-              </div>
+                    <TiDelete className='delete-icon' onClick={() => removeSchool(x.id)} />
+              </div>  
             )
           })}
           </div>
